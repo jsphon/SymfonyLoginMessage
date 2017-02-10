@@ -1,9 +1,1 @@
-SFLive-Paris2016-Workflow
-=========================
-
-Installation
-------------
-
-    composer install
-    bin/console doctrine:database:create
-    bin/console doctrine:schema:update --force
+Hacking the SFLive-Paris2016-Workflow demo to make it display a modal when the user switches.
