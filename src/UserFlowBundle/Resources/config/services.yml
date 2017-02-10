@@ -1,0 +1,11 @@
+services:
+#    user_flow.example:
+#        class: UserFlowBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+     user_flow.on_switch_user_success:
+         class: UserFlowBundle\EventListener\OnSwitchUserSuccessHandler
+         arguments: [ "@doctrine.orm.entity_manager", "@workflow.registry", "@logger", "@=service('security.token_storage').getToken().getUser()" ]
+         tags:
+            - { name: kernel.event_listener, event: security.switch_user, method: onSwitchUser }
+            - { name: monolog.logger, channel: acme }

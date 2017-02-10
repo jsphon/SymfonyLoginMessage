@@ -1,5 +1,18 @@
 framework:
     workflows:
+        loginModal:
+            supports:
+                - UserFlowBundle\Entity\LoginMessage
+            places:
+                - show
+                - hide
+            transitions:
+                user_logs_in:
+                    from: hide
+                    to: show
+                message_shown:
+                    from: show
+                    to: hide
         article:
             supports:
                 - AppBundle\Entity\Article

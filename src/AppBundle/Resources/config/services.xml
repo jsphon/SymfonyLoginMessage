@@ -14,5 +14,20 @@
             <argument type="service" id="workflow.registry" />
             <tag name="twig.extension" />
         </service>
+        
+        <service id="workflow.user_flow_login_message" class="UserFlowBundle\Twig\WorkflowExtension">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="security.token_storage" />
+            <tag name="twig.extension" />
+        </service>
+        
+        <service id="test.on_authentication_success" class="AppBundle\EventListener\OnAuthenticationSuccessHandler">
+            <tag name="kernel.event_listener" event="security.interactive_login" method="onSecurityInteractiveLogin" />
+        </service>
+        
+        <service id="test.on_switch_user_success" class="AppBundle\EventListener\OnSwitchUserSuccessHandler">
+            <argument type="service" id="twig" />
+            <tag name="kernel.event_listener" event="security.switch_user" method="onSwitchUser" />
+        </service>
     </services>
 </container>
