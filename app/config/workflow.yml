@@ -1,6 +1,7 @@
 framework:
     workflows:
         loginModal:
+            type: state_machine
             supports:
                 - UserFlowBundle\Entity\LoginMessage
             places:

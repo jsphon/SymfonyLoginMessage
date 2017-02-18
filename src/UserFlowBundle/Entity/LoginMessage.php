@@ -101,5 +101,19 @@ class LoginMessage
     {
         return $this->user;
     }
+    
+    /** @ORM\Column(type="string", nullable=true) */
+    private $marking;
+    
+    public function getMarking()
+    {
+        return $this->marking;
+    }
+
+    public function setMarking($marking)
+    {
+        $this->marking = $marking;
+    }
+    
 }
 

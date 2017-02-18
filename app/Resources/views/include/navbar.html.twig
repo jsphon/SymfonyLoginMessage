@@ -8,6 +8,39 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ path('homepage') }}">Workflow</a>
+            <button type="button" class="btn btn-primary">Button1 <span class="label label-success label-as-badge">!</span></button>
+            <button type="button" class="btn btn-primary">Button2 <span class="label label-info label-as-badge">!</span></button>
+            <button type="button" class="btn btn-primary">Button3 <span class="label label-warning label-as-badge">!</span></button>           
+            
+            <a id='example' href="#" data-placement="bottom" data-toggle="popover" title="x" data-content="Why don't you click on button 4?">
+                <button type="button" class="btn btn-primary">Button4 <span class="label label-success label-as-badge">!</span></button>
+            </a>
+
+        <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover(); 
+            $("#example").popover({'placement':'bottom'}).popover('show');
+            //http://stackoverflow.com/questions/13413057/how-to-insert-close-button-in-popover-for-bootstrap
+            $('.popover-title').click(function(){
+                $('#example').popover('destroy');
+              });
+        });
+        </script>
+        
+        
+            <form action="{{ path('user_flow_apply_transition') }}" method="post">
+                <div class="btn-group-horizontal" role="group">
+            
+                    <button type="submit" name="transition" value="user_logs_in" class="btn btn-primary">
+                           User Logs In
+                    </button>
+                    <button type="submit" name="transition" value="message_shown" class="btn btn-primary">
+                           Message Shown
+                    </button>
+
+                </div>
+            </form>
+
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
