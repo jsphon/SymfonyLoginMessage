@@ -22,6 +22,16 @@ class DefaultController extends Controller
     }
     
     /**
+     * @Route("/showModal")
+     * 
+     */
+    public function showModalAction(){
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        return $this->render('UserFlowBundle:Default:showModal.html.twig', ['user'=>$user]);
+    }
+    
+    
+    /**
      * @Route("/apply-transition/", name="user_flow_apply_transition")
      * @Method("POST")
      */

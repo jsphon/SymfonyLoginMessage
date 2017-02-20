@@ -16,7 +16,17 @@
         
         {% block javascript %}
         <script type="text/javascript">
-            $(window).on('load', function() {$('#myModal').modal('show');});
+            
+            var remote_modal = function(url) {
+    // reset modal body with a spinner or empty content
+    spinner = "<div class='text-center'><i class='fa fa-spinner fa-spin fa-5x fa-fw'></i></div>"
+
+    $("#myModal.modal-body").html(spinner)
+    $("#myModal.modal-body").load(url);
+    $("#myModal").modal("show");
+  }
+            $(window).on('load', function() {remote_modal('userflow/showModal')});
+            //$(window).on('load', function() {$('#myModal').modal('show');});
         </script>
         {% endblock %}
 
